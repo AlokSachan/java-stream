@@ -9,6 +9,7 @@ import mockdata.MockData;
 import org.junit.Test;
 
 import java.util.List;
+import java.util.OptionalDouble;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -51,10 +52,9 @@ public class Lecture5 {
   public void averageCarPrice() throws Exception {
     // calculate average of car prices
     double average = MockData.getCars()
-        .stream()
-        .mapToDouble(Car::getPrice)
-        .average()
-        .orElse(0);
+            .stream()
+            .mapToDouble(Car::getPrice)
+            .average().getAsDouble();
     System.out.println(average);
   }
 
